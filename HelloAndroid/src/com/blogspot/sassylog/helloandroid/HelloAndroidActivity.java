@@ -25,7 +25,7 @@ public class HelloAndroidActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HelloAndroidActivity.this, SecondAndroidActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, 100);
             }
         });
     }
