@@ -134,7 +134,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
 
     public void testEditText1() throws Exception {
         final EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
-       final Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
+        final Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -142,11 +142,9 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
             }
         });
         instrumentation.waitForIdleSync();
-        sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
         sendKeys(KeyEvent.KEYCODE_F);
         sendKeys(KeyEvent.KEYCODE_O);
         sendKeys(KeyEvent.KEYCODE_X);
-        sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
