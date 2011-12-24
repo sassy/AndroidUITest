@@ -129,22 +129,31 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
     public void testEditText0() throws Exception {
         EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
         assertTrue(edit.getText().toString().equals(""));
+        assertNull(activity.getSendData());
     }
 
     public void testEditText1() throws Exception {
         final EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
+       final Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 edit.requestFocus();
             }
         });
+        instrumentation.waitForIdleSync();
         sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
         sendKeys(KeyEvent.KEYCODE_F);
         sendKeys(KeyEvent.KEYCODE_O);
         sendKeys(KeyEvent.KEYCODE_X);
         sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
-        sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+               button.performClick();
+            }
+        });
+        instrumentation.waitForIdleSync();
         assertEquals("fox", activity.getSendData());
     }
 
