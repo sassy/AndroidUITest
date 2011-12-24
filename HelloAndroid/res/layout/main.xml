@@ -10,6 +10,22 @@
         android:layout_height="wrap_content" 
         android:text="@string/hello"
         />
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+    />
+    <EditText
+        android:id="@+id/editer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+    />
+    <Button
+        android:id="@+id/send"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/send"
+    />
     <Button
         android:id="@+id/button"
         android:layout_width="fill_parent"
@@ -22,6 +38,5 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello"
-        
     />
 </LinearLayout>
