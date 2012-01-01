@@ -65,10 +65,10 @@ public class HelloAndroidActivity extends Activity {
 
     @Override
     protected void onStart() {
-        y = 1;
         super.onStart();
+        y = 1;
     }
-    
+
     @Override
     protected void onResume() {
         y = 2;

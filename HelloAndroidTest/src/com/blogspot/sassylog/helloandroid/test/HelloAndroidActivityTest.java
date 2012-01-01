@@ -33,11 +33,11 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
         assertNotNull(resourceString, view.getText().toString());
     }
     
-    public void testButton1() throws Exception {
+    public void testButton_initialize() throws Exception {
         assertEquals(0, activity.getX());
     }
     
-    public void testButton2() throws Exception {
+    public void testButton1() throws Exception {
         final Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.button);
         activity.runOnUiThread(new Runnable() {
             @Override
@@ -51,13 +51,13 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
     }
 
     /* use touchUtils */
-    public void testButton3() throws Exception {
+    public void testButton2() throws Exception {
         Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.button);
         TouchUtils.clickView(this, button);
         assertEquals(1, activity.getX());
     }
 
-    public void testSpinner0() throws Exception {
+    public void testSpinner_initialize() throws Exception {
         Spinner spinner = (Spinner)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.spinner);
         assertTrue(spinner.getOnItemSelectedListener() != null);
         assertTrue(spinner.getAdapter() != null);
@@ -126,9 +126,9 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
         assertEquals(spinner.getSelectedItem(), activity.getSelectedItem());
     }
 
-    public void testEditText0() throws Exception {
+    public void testEditText_initialize() throws Exception {
         EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
-        assertTrue(edit.getText().toString().equals(""));
+        assertEquals("", edit.getText().toString());
         assertNull(activity.getSendData());
     }
 

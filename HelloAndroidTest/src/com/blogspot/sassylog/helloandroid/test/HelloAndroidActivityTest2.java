@@ -12,12 +12,7 @@ public class HelloAndroidActivityTest2 extends ActivityUnitTestCase<HelloAndroid
     public HelloAndroidActivityTest2() {
         super(HelloAndroidActivity.class);
     }
-    
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-    
+
     public void testLifeCycle() throws Exception {
         Intent intent = new Intent();
         HelloAndroidActivity target = startActivity(intent, null, null);
