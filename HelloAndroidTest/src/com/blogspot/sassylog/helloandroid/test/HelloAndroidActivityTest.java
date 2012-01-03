@@ -37,7 +37,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
         assertEquals(0, activity.getX());
     }
     
-    public void testButton1() throws Exception {
+    public void testButton_checkClick1() throws Exception {
         final Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.button);
         activity.runOnUiThread(new Runnable() {
             @Override
@@ -51,7 +51,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
     }
 
     /* use touchUtils */
-    public void testButton2() throws Exception {
+    public void testButton_checkClick2() throws Exception {
         Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.button);
         TouchUtils.clickView(this, button);
         assertEquals(1, activity.getX());
@@ -64,7 +64,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
         assertEquals(3, spinner.getAdapter().getCount());
     }
     
-    public void testSpinner1() throws Exception {
+    public void testSpinner_checkSelection() throws Exception {
         final Spinner spinner = (Spinner)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.spinner);
         activity.runOnUiThread(new Runnable() {
             @Override
@@ -102,7 +102,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
         assertEquals("bird", activity.getSelectedItem());
     }
 
-    public void testSpinner2() throws Exception {
+    public void testSpinner_checkKeyDown() throws Exception {
         final Spinner spinner = (Spinner)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.spinner);
         activity.runOnUiThread(new Runnable() {
             @Override
@@ -118,7 +118,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
     }
 
     /* use TouchUtils */
-    public void testSpinner3() throws Exception {
+    public void testSpinner_checkKeyDown2() throws Exception {
         Spinner spinner = (Spinner)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.spinner);
         TouchUtils.clickView(this, spinner);
         sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
@@ -132,9 +132,8 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
         assertNull(activity.getSendData());
     }
 
-    public void testEditText1() throws Exception {
+    public void testEditText_checkInput() throws Exception {
         final EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
-        final Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -145,18 +144,11 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
         sendKeys(KeyEvent.KEYCODE_F);
         sendKeys(KeyEvent.KEYCODE_O);
         sendKeys(KeyEvent.KEYCODE_X);
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-               button.performClick();
-            }
-        });
-        instrumentation.waitForIdleSync();
-        assertEquals("fox", activity.getSendData());
+        assertEquals("fox", edit.getText().toString());
     }
 
     /* use TouchUtils */
-    public void testEditText2() throws Exception {
+    public void testEditText_checkButtonClick() throws Exception {
         EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
         Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
         TouchUtils.clickView(this, edit);
