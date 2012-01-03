@@ -144,7 +144,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
         sendKeys(KeyEvent.KEYCODE_F);
         sendKeys(KeyEvent.KEYCODE_O);
         sendKeys(KeyEvent.KEYCODE_X);
-        assertEquals("fox", edit.getText().toString());
+        assertEquals("入力された値のチェック","fox", edit.getText().toString());
     }
 
     /* use TouchUtils */
@@ -156,7 +156,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
         sendKeys(KeyEvent.KEYCODE_O);
         sendKeys(KeyEvent.KEYCODE_W);
         TouchUtils.clickView(this, button);
-        assertEquals("cow", activity.getSendData());
+        assertEquals("ボタンがクリックされた時の値のチェック", "cow", activity.getSendData());
     }
 
 }
