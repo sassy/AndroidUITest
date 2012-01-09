@@ -9,14 +9,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class HelloAndroidActivity extends Activity {
     private int x = 0;
     private int y = 0;
     private String selectedItem;
-    private String sendData;
-    
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -52,15 +52,12 @@ public class HelloAndroidActivity extends Activity {
                 selectedItem = null;
             }
         });
-        
-        Button sendButton = (Button)findViewById(R.id.send);
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText edit = (EditText) v.getRootView().findViewById(R.id.editer);
-                sendData = edit.getText().toString();
-            }
-        });
+    }
+
+    public void onTextUpdate(View v) {
+        EditText edit = (EditText) v.getRootView().findViewById(R.id.editer);
+        TextView text = (TextView) v.getRootView().findViewById(R.id.result);
+        text.setText(edit.getText());
     }
 
     @Override
@@ -71,8 +68,8 @@ public class HelloAndroidActivity extends Activity {
 
     @Override
     protected void onResume() {
-        y = 2;
         super.onResume();
+        y = 2;
     }
  
     public int getX() {
@@ -87,7 +84,4 @@ public class HelloAndroidActivity extends Activity {
         return selectedItem;
     }
 
-    public String getSendData() {
-        return sendData;
-    }
 }

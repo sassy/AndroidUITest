@@ -128,8 +128,9 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
 
     public void testEditText_initialize() throws Exception {
         EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
+        TextView text = (TextView)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.result);
         assertEquals("", edit.getText().toString());
-        assertNull(activity.getSendData());
+        assertEquals("", text.getText());
     }
 
     public void testEditText_checkInput() throws Exception {
@@ -151,12 +152,13 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
     public void testEditText_checkButtonClick() throws Exception {
         EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
         Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
+        TextView text = (TextView)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.result);
         TouchUtils.clickView(this, edit);
         sendKeys(KeyEvent.KEYCODE_C);
         sendKeys(KeyEvent.KEYCODE_O);
         sendKeys(KeyEvent.KEYCODE_W);
         TouchUtils.clickView(this, button);
-        assertEquals("ボタンがクリックされた時の値のチェック", "cow", activity.getSendData());
+        assertEquals("ボタンがクリックされた時の値のチェック", "cow", text.getText().toString());
     }
 
 }
