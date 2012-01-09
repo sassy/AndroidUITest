@@ -135,7 +135,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
 
     public void testEditText_checkInput() throws Exception {
         final EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
-        Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
+        final Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
         TextView result = (TextView)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.result);
         activity.runOnUiThread(new Runnable() {
             @Override
@@ -147,7 +147,13 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
         sendKeys(KeyEvent.KEYCODE_F);
         sendKeys(KeyEvent.KEYCODE_O);
         sendKeys(KeyEvent.KEYCODE_X);
-        TouchUtils.clickView(this, button);
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                button.performClick();
+            }
+        });
+        instrumentation.waitForIdleSync();
         assertEquals("入力された値のチェック","fox", result.getText().toString());
     }
 
