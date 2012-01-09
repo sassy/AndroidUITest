@@ -135,6 +135,8 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
 
     public void testEditText_checkInput() throws Exception {
         final EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
+        Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
+        TextView result = (TextView)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.result);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -145,20 +147,21 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
         sendKeys(KeyEvent.KEYCODE_F);
         sendKeys(KeyEvent.KEYCODE_O);
         sendKeys(KeyEvent.KEYCODE_X);
-        assertEquals("入力された値のチェック","fox", edit.getText().toString());
+        TouchUtils.clickView(this, button);
+        assertEquals("入力された値のチェック","fox", result.getText().toString());
     }
 
     /* use TouchUtils */
     public void testEditText_checkButtonClick() throws Exception {
         EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
         Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
-        TextView text = (TextView)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.result);
+        TextView result = (TextView)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.result);
         TouchUtils.clickView(this, edit);
         sendKeys(KeyEvent.KEYCODE_C);
         sendKeys(KeyEvent.KEYCODE_O);
         sendKeys(KeyEvent.KEYCODE_W);
         TouchUtils.clickView(this, button);
-        assertEquals("ボタンがクリックされた時の値のチェック", "cow", text.getText().toString());
+        assertEquals("ボタンがクリックされた時の値のチェック", "cow", result.getText().toString());
     }
 
 }
