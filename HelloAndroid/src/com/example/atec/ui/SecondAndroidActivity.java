@@ -1,4 +1,6 @@
-package com.blogspot.sassylog.helloandroid;
+package com.example.atec.ui;
+
+import com.example.atec.ui.R;
 
 import android.app.Activity;
 import android.os.Bundle;

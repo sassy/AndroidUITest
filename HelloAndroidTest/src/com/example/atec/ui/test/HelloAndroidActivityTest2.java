@@ -1,7 +1,7 @@
-package com.blogspot.sassylog.helloandroid.test;
+package com.example.atec.ui.test;
 
-import com.blogspot.sassylog.helloandroid.HelloAndroidActivity;
-import com.blogspot.sassylog.helloandroid.SecondAndroidActivity;
+import com.example.atec.ui.HelloAndroidActivity;
+import com.example.atec.ui.SecondAndroidActivity;
 
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
@@ -26,7 +26,7 @@ public class HelloAndroidActivityTest2 extends ActivityUnitTestCase<HelloAndroid
     public void testButton() throws Exception {
         Intent intent = new Intent();
         HelloAndroidActivity activity = startActivity(intent, null, null);
-        final Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.button2);
+        final Button button = (Button)activity.findViewById(com.example.atec.ui.R.id.button2);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {

@@ -1,6 +1,6 @@
-package com.blogspot.sassylog.helloandroid.test;
+package com.example.atec.ui.test;
 
-import com.blogspot.sassylog.helloandroid.HelloAndroidActivity;
+import com.example.atec.ui.HelloAndroidActivity;
 
 import android.app.Instrumentation;
 import android.test.ActivityInstrumentationTestCase2;
@@ -17,7 +17,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
     private Instrumentation instrumentation;
  
     public HelloAndroidActivityTest() {
-        super("com.blogspot.sassylog.helloandroid", HelloAndroidActivity.class);
+        super("com.example.atec.ui", HelloAndroidActivity.class);
     }
     
     @Override
@@ -28,8 +28,8 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
     }
 
     public void testText() throws Exception {
-        TextView view = (TextView) activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.textView);
-        String resourceString = activity.getString(com.blogspot.sassylog.helloandroid.R.string.hello);
+        TextView view = (TextView) activity.findViewById(com.example.atec.ui.R.id.textView);
+        String resourceString = activity.getString(com.example.atec.ui.R.string.hello);
         assertNotNull(resourceString, view.getText().toString());
     }
     
@@ -38,7 +38,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
     }
     
     public void testButton_checkClick1() throws Exception {
-        final Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.button);
+        final Button button = (Button)activity.findViewById(com.example.atec.ui.R.id.button);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -52,20 +52,20 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
 
     /* use touchUtils */
     public void testButton_checkClick2() throws Exception {
-        Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.button);
+        Button button = (Button)activity.findViewById(com.example.atec.ui.R.id.button);
         TouchUtils.clickView(this, button);
         assertEquals(1, activity.getX());
     }
 
     public void testSpinner_initialize() throws Exception {
-        Spinner spinner = (Spinner)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.spinner);
+        Spinner spinner = (Spinner)activity.findViewById(com.example.atec.ui.R.id.spinner);
         assertTrue(spinner.getOnItemSelectedListener() != null);
         assertTrue(spinner.getAdapter() != null);
         assertEquals(3, spinner.getAdapter().getCount());
     }
     
     public void testSpinner_checkSelection() throws Exception {
-        final Spinner spinner = (Spinner)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.spinner);
+        final Spinner spinner = (Spinner)activity.findViewById(com.example.atec.ui.R.id.spinner);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -103,7 +103,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
     }
 
     public void testSpinner_checkKeyDown() throws Exception {
-        final Spinner spinner = (Spinner)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.spinner);
+        final Spinner spinner = (Spinner)activity.findViewById(com.example.atec.ui.R.id.spinner);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -119,7 +119,7 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
 
     /* use TouchUtils */
     public void testSpinner_checkKeyDown2() throws Exception {
-        Spinner spinner = (Spinner)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.spinner);
+        Spinner spinner = (Spinner)activity.findViewById(com.example.atec.ui.R.id.spinner);
         TouchUtils.clickView(this, spinner);
         sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
         sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
@@ -127,16 +127,16 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
     }
 
     public void testEditText_initialize() throws Exception {
-        EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
-        TextView text = (TextView)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.result);
+        EditText edit = (EditText)activity.findViewById(com.example.atec.ui.R.id.editer);
+        TextView text = (TextView)activity.findViewById(com.example.atec.ui.R.id.result);
         assertEquals("", edit.getText().toString());
         assertEquals("", text.getText());
     }
 
     public void testEditText_checkInput() throws Exception {
-        final EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
-        final Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
-        TextView result = (TextView)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.result);
+        final EditText edit = (EditText)activity.findViewById(com.example.atec.ui.R.id.editer);
+        final Button button = (Button)activity.findViewById(com.example.atec.ui.R.id.send);
+        TextView result = (TextView)activity.findViewById(com.example.atec.ui.R.id.result);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -159,9 +159,9 @@ public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<H
 
     /* use TouchUtils */
     public void testEditText_checkButtonClick() throws Exception {
-        EditText edit = (EditText)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.editer);
-        Button button = (Button)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.send);
-        TextView result = (TextView)activity.findViewById(com.blogspot.sassylog.helloandroid.R.id.result);
+        EditText edit = (EditText)activity.findViewById(com.example.atec.ui.R.id.editer);
+        Button button = (Button)activity.findViewById(com.example.atec.ui.R.id.send);
+        TextView result = (TextView)activity.findViewById(com.example.atec.ui.R.id.result);
         TouchUtils.clickView(this, edit);
         sendKeys(KeyEvent.KEYCODE_C);
         sendKeys(KeyEvent.KEYCODE_O);
