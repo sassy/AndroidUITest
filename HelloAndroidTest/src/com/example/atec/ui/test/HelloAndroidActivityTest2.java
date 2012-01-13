@@ -26,7 +26,7 @@ public class HelloAndroidActivityTest2 extends ActivityUnitTestCase<HelloAndroid
     public void testButton() throws Exception {
         Intent intent = new Intent();
         HelloAndroidActivity activity = startActivity(intent, null, null);
-        final Button button = (Button)activity.findViewById(com.example.atec.ui.R.id.button2);
+        final Button button = (Button)activity.findViewById(com.example.atec.ui.R.id.button);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
