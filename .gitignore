@@ -1,11 +1,10 @@
-HelloAndroid/.classpath
-HelloAndroid/.project
-HelloAndroid/.project.properties
+.DS_Store
+.classpath
+.project
+*.properties
 HelloAndroid/assets
 HelloAndroid/bin
 HelloAndroid/gen
-HelloAndroidTest/.project
-HelloAndroidTest/.project.properties
 HelloAndroidTest/assets
 HelloAndroidTest/bin
 HelloAndroidTest/gen
